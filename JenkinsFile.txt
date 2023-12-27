@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from the repository
+                git branch: 'main', url: 'https://github.com/MalakGhazy/Jenkins-Task.git'
+            }
+        }
+
+        stage('Execute Bash Script') {
+            steps {
+                // Execute the Bash script
+                sh './list_files.sh'
+            }
+        }
+    }
+}
